@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace InterfaceExercise
 {
@@ -39,6 +40,22 @@ namespace InterfaceExercise
 
             //Now, create objects of your 3 classes and give their members values;
             //Creatively display and organize their values
+
+            var car1 = new Car() { HasTrunk = true, Logo = "Toyota logo", Name = "Toyota", NumOfDoors = 4, NumOfSeats = 6, NumOfTires = 4, TrunkSize = "f cubic feet" };
+            var truck1 = new Truck() { NumOfTires = 4, NumOfSeats = 4, NumOfDoors = 4, Name = "Dodge", Logo = "Dodge logo", BedSize = "8 foot", HasBed = true };
+            var suv1 = new SUV() { Logo = "Jeep logo", Name = "Jeep", NumOfDoors = 2, NumOfSeats = 2, NumOfTires = 4, HasCargoHold = true, HasSunRoof = true };
+
+            var vehicles = new List<IVehicle>();
+
+            vehicles.Add(car1);
+            vehicles.Add(truck1);
+            vehicles.Add(suv1);
+
+            foreach (var i in vehicles)
+            {
+                Console.WriteLine($"Tires: {i.NumOfTires}, Seats: {i.NumOfSeats}, Doors: {i.NumOfDoors}");
+            }
+
         }
     }
 }
